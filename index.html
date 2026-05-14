@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SH Property Portfolios | Hands-Free UK Property Investments</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  
+    <style>
+        :root {
+            --navy: #0f172a;
+            --gold: #d4af37;
+        }
+        .hero-bg {
+            background: linear-gradient(rgba(15, 23, 42, 0.65), rgba(15, 23, 42, 0.75)),
+                        url('https://images.unsplash.com/photo-1582407947304-fd35c3c5a6e4?q=80&w=2070') center/cover no-repeat fixed;
+        }
+        .section-title { 
+            font-family: 'Playfair Display', sans-serif; 
+            letter-spacing: -0.04em; 
+        }
+        .body-font { font-family: 'Inter', sans-serif; }
+
+        .logo-img { height: 56px; width: auto; }
+        .footer-logo { height: 70px; width: auto; }
+
+        .navbar {
+            transition: all 0.4s ease;
+            background-color: transparent;
+        }
+        .navbar.scrolled {
+            background-color: #f5f5dc !important;
+            box-shadow: 0 4px 25px rgba(0, 0, 0, 0.1);
+        }
+        .nav-text {
+            color: white;
+            transition: color 0.4s ease;
+        }
+        .navbar.scrolled .nav-text {
+            color: var(--navy) !important;
+        }
+
+        .card { transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); }
+        .card:hover { transform: translateY(-12px); }
+
+        .accent { background-color: var(--navy); color: white; }
+        .accent-hover:hover { background-color: #1e2937; }
+
+        .compact-input {
+            padding: 16px 20px 16px 50px;
+            font-size: 16px;
+            border-radius: 16px;
+        }
+        .input-icon {
+            position: absolute;
+            left: 18px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #64748b;
+        }
+        .success-message {
+            display: none;
+            background-color: #10b981;
+            color: white;
+            padding: 16px 24px;
+            border-radius: 16px;
+            margin-top: 20px;
+            text-align: center;
+            font-weight: 600;
+        }
+        .footer-dark {
+            background-color: #0f172a;
+            color: #e2e8f0;
+        }
+
+        /* Cookie Consent */
+        #cookieConsent {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            right: 20px;
+            max-width: 440px;
+            background: #0f172a;
+            color: white;
+            border-radius: 16px;
+            padding: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            z-index: 1000;
+            display: none;
+            align-items: center;
+            gap: 16px;
+        }
+    </style>
+</head>
+<body class="bg-[#fffff0] text-[#1f2937] body-font">
+
+    <!-- NAVBAR -->
+    <header id="navbar" class="navbar fixed w-full z-50 py-5">
+        <div class="max-w-7xl mx-auto px-6 md:px-8 flex justify-between items-center">
+            <img src="logo.png" alt="SH Property Portfolios" class="logo-img">
+            
+            <nav class="hidden md:flex gap-9 text-base font-medium">
+                <a href="#offers" class="nav-text">Offers</a>
+                <a href="#how" class="nav-text">How It Works</a>
+                <a href="#deals" class="nav-text">Deals</a>
+            </nav>
+
+            <a href="#strategy-call" class="accent px-7 py-3.5 rounded-2xl font-semibold text-sm hidden sm:block accent-hover">
+                <i class="fas fa-calendar-check mr-2"></i>Book Strategy Call
+            </a>
+        </div>
+    </header>
+
+    <!-- HERO -->
+    <section class="hero-bg h-screen flex items-center pt-16 text-white">
+        <div class="max-w-5xl mx-auto text-center px-6">
+            <h1 class="text-5xl md:text-6xl font-bold leading-tight mb-6 section-title">
+                Build Wealth in UK Property<br>Without Lifting a Finger
+            </h1>
+            <p class="text-2xl md:text-3xl text-white/90 mb-12 max-w-3xl mx-auto">
+                Done-for-you portfolio building • Fully vetted deals • Complete hands-free management
+            </p>
+            <div class="flex flex-col sm:flex-row gap-5 justify-center">
+                <a href="#investment-form" class="accent px-10 py-5 rounded-3xl text-lg font-semibold accent-hover">
+                    <i class="fas fa-chart-line mr-3"></i>I Want to Invest
+                </a>
+                <a href="#sell-form" class="border-2 border-white text-white px-10 py-5 rounded-3xl text-lg font-semibold hover:bg-white hover:text-[#0f172a]">
+                    <i class="fas fa-home mr-3"></i>I Want to Sell
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- CORE OFFERS -->
+    <section id="offers" class="py-28 bg-white">
+        <div class="max-w-7xl mx-auto px-6">
+            <h2 class="text-5xl font-bold text-center mb-16 section-title">Our Core Offers</h2>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-[#f5f5dc] p-10 rounded-3xl card">
+                    <div class="w-14 h-14 bg-[#0f172a] text-white rounded-2xl flex items-center justify-center text-3xl mb-6">🏠</div>
+                    <h3 class="text-3xl font-semibold mb-3">Portfolio Building</h3>
+                    <p class="text-gray-600">Done-for-you remote portfolio building from sourcing to full management.</p>
+                </div>
+                <div class="bg-[#f5f5dc] p-10 rounded-3xl card">
+                    <div class="w-14 h-14 bg-[#0f172a] text-white rounded-2xl flex items-center justify-center text-3xl mb-6">💰</div>
+                    <h3 class="text-3xl font-semibold mb-3">Vetted Deals</h3>
+                    <p class="text-gray-600">Pre-packaged, income-generating opportunities with full transparency.</p>
+                </div>
+                <div class="bg-[#f5f5dc] p-10 rounded-3xl card">
+                    <div class="w-14 h-14 bg-[#0f172a] text-white rounded-2xl flex items-center justify-center text-3xl mb-6">🤝</div>
+                    <h3 class="text-3xl font-semibold mb-3">Co-Investment</h3>
+                    <p class="text-gray-600">Access high-return development projects with experienced partners.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- WHO IT IS FOR -->
+    <section class="py-28 bg-[#f5f5dc]">
+        <div class="max-w-6xl mx-auto px-6 text-center">
+            <h2 class="text-5xl font-bold mb-16 section-title">Who This Is For</h2>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-white p-10 rounded-3xl card">
+                    <div class="text-5xl mb-6">👔</div>
+                    <h3 class="text-2xl font-semibold mb-3">Busy Professionals</h3>
+                    <p class="text-gray-600">No time to manage properties but want passive income</p>
+                </div>
+                <div class="bg-white p-10 rounded-3xl card">
+                    <div class="text-5xl mb-6">💼</div>
+                    <h3 class="text-2xl font-semibold mb-3">Hands-Off Investors</h3>
+                    <p class="text-gray-600">Want UK property income without the hassle</p>
+                </div>
+                <div class="bg-white p-10 rounded-3xl card">
+                    <div class="text-5xl mb-6">🌱</div>
+                    <h3 class="text-2xl font-semibold mb-3">First-Time Investors</h3>
+                    <p class="text-gray-600">Looking for expert guidance and vetted opportunities</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- HOW IT WORKS -->
+    <section id="how" class="py-28 bg-white">
+        <div class="max-w-6xl mx-auto px-6 text-center">
+            <h2 class="text-5xl font-bold mb-16 section-title">How It Works</h2>
+            <div class="grid md:grid-cols-5 gap-8">
+                <div class="card bg-white p-8 rounded-3xl border">
+                    <i class="fas fa-phone text-4xl text-gray-400 mb-4"></i>
+                    <div class="text-4xl font-bold text-gray-300 mb-2">01</div>
+                    <p class="font-semibold text-lg">Book a Call</p>
+                </div>
+                <div class="card bg-white p-8 rounded-3xl border">
+                    <i class="fas fa-bullseye text-4xl text-gray-400 mb-4"></i>
+                    <div class="text-4xl font-bold text-gray-300 mb-2">02</div>
+                    <p class="font-semibold text-lg">Define Your Goals</p>
+                </div>
+                <div class="card bg-white p-8 rounded-3xl border">
+                    <i class="fas fa-search text-4xl text-gray-400 mb-4"></i>
+                    <div class="text-4xl font-bold text-gray-300 mb-2">03</div>
+                    <p class="font-semibold text-lg">We Source & Vet</p>
+                </div>
+                <div class="card bg-white p-8 rounded-3xl border">
+                    <i class="fas fa-pound-sign text-4xl text-gray-400 mb-4"></i>
+                    <div class="text-4xl font-bold text-gray-300 mb-2">04</div>
+                    <p class="font-semibold text-lg">You Invest</p>
+                </div>
+                <div class="card bg-white p-8 rounded-3xl border">
+                    <i class="fas fa-cogs text-4xl text-gray-400 mb-4"></i>
+                    <div class="text-4xl font-bold text-gray-300 mb-2">05</div>
+                    <p class="font-semibold text-lg">We Manage</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- EXAMPLE DEAL -->
+    <section id="deals" class="py-28 bg-white">
+        <div class="max-w-6xl mx-auto px-6">
+            <h2 class="text-5xl font-bold text-center mb-4 section-title">Example Vetted Deal – Manchester</h2>
+            <div class="grid md:grid-cols-2 gap-12 items-center max-w-5xl mx-auto">
+                <div class="bg-[#f5f5dc] p-10 rounded-3xl">
+                    <div class="grid grid-cols-2 gap-y-6 text-base mb-10">
+                        <div><span class="text-gray-500">Purchase Price:</span> <strong>£145,000</strong></div>
+                        <div><span class="text-gray-500">Refurbishment:</span> <strong>£15,000</strong></div>
+                        <div><span class="text-gray-500">Total Investment:</span> <strong>£160,000</strong></div>
+                        <div><span class="text-gray-500">Monthly Rental:</span> <strong>£1,150</strong></div>
+                        <div><span class="text-gray-500">Net Cash Flow:</span> <strong class="text-emerald-600">~£450/month</strong></div>
+                        <div><span class="text-gray-500">Yield:</span> <strong class="text-emerald-600">8.6%</strong></div>
+                    </div>
+                    <ul class="space-y-3 text-gray-600">
+                        <li class="flex items-start gap-3"><i class="fas fa-check text-emerald-600 mt-1"></i> Property refurbished</li>
+                        <li class="flex items-start gap-3"><i class="fas fa-check text-emerald-600 mt-1"></i> Tenants sourced</li>
+                        <li class="flex items-start gap-3"><i class="fas fa-check text-emerald-600 mt-1"></i> Full management handled</li>
+                    </ul>
+                </div>
+                <div class="rounded-3xl overflow-hidden shadow-2xl">
+                    <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?q=80&w=2075" alt="Manchester Property" class="w-full">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- STRATEGY CALL -->
+    <section id="strategy-call" class="py-28 bg-white">
+        <div class="max-w-2xl mx-auto px-6">
+            <div class="bg-[#f5f5dc] p-12 rounded-3xl text-center">
+                <h2 class="text-4xl font-bold mb-4 section-title">Ready to Get Started?</h2>
+                <p class="text-xl text-gray-600 mb-10">Book your free 30-minute strategy call</p>
+                
+                <form id="strategyForm" class="space-y-6">
+                    <div class="relative">
+                        <i class="fas fa-user input-icon"></i>
+                        <input type="text" name="name" required placeholder="Full Name" class="compact-input w-full border border-gray-300">
+                    </div>
+                    <div class="relative">
+                        <i class="fas fa-envelope input-icon"></i>
+                        <input type="email" name="email" required placeholder="Email Address" class="compact-input w-full border border-gray-300">
+                    </div>
+                    <div class="relative">
+                        <i class="fas fa-phone input-icon"></i>
+                        <input type="tel" name="phone" required placeholder="Phone Number" class="compact-input w-full border border-gray-300">
+                    </div>
+                    <button type="submit" class="w-full accent py-6 rounded-3xl font-semibold text-lg accent-hover">
+                        Book Strategy Call Now
+                    </button>
+                    <div id="strategySuccess" class="success-message">✅ Request received! We'll contact you shortly.</div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer-dark pt-20 pb-12">
+        <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-12 gap-10">
+            <div class="md:col-span-5">
+                <img src="logo.png" alt="SH Property Portfolios" class="footer-logo mb-6">
+                <p class="text-gray-400 text-lg">Your Partner in Property Success</p>
+            </div>
+            
+            <div class="md:col-span-3">
+                <h4 class="text-white font-semibold mb-6">Contact Us</h4>
+                <div class="space-y-3 text-gray-300">
+                    <a href="mailto:info@shpropertyportfolios.co.uk" class="hover:text-white flex items-center gap-3">
+                        <i class="fas fa-envelope"></i> info@shpropertyportfolios.co.uk
+                    </a>
+                    <a href="tel:+447792945413" class="hover:text-white flex items-center gap-3">
+                        <i class="fas fa-phone"></i> +44 (0)7792 945413
+                    </a>
+                </div>
+            </div>
+
+            <div class="md:col-span-4">
+                <h4 class="text-white font-semibold mb-6">Registered Address</h4>
+                <p class="text-gray-400 text-sm leading-relaxed">
+                    21 Park Crescent<br>
+                    Thorne<br>
+                    Doncaster<br>
+                    South Yorkshire<br>
+                    DN8 5LQ
+                </p>
+            </div>
+        </div>
+
+        <div class="border-t border-gray-800 mt-16 pt-8">
+            <div class="max-w-7xl mx-auto px-6 text-center text-gray-500 text-sm">
+                © 2026 SH Property Portfolios • All Rights Reserved<br>
+                Property investment involves risk. Past performance is not indicative of future results.
+            </div>
+        </div>
+    </footer>
+
+    <!-- COOKIE CONSENT -->
+    <div id="cookieConsent" class="flex flex-col sm:flex-row items-center justify-between gap-4">
+        <p class="text-sm text-gray-300 flex-1">
+            This website uses cookies to improve your experience. By continuing, you agree to our use of cookies.
+        </p>
+        <button onclick="acceptCookies()" 
+                class="bg-[#d4af37] hover:bg-amber-400 text-[#0f172a] font-semibold px-8 py-3 rounded-2xl text-sm whitespace-nowrap">
+            Accept
+        </button>
+    </div>
+
+    <script>
+        // Navbar Scroll
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            navbar.classList.toggle('scrolled', window.scrollY > 80);
+        });
+
+        // Form Handler
+        document.getElementById('strategyForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const success = document.getElementById('strategySuccess');
+            success.style.display = 'block';
+            this.reset();
+            setTimeout(() => success.style.display = 'none', 6000);
+        });
+
+        // Cookie Consent
+        function acceptCookies() {
+            document.getElementById('cookieConsent').style.display = 'none';
+            localStorage.setItem('cookiesAccepted', 'true');
+        }
+
+        window.onload = function() {
+            if (!localStorage.getItem('cookiesAccepted')) {
+                document.getElementById('cookieConsent').style.display = 'flex';
+            }
+        };
+    </script>
+</body>
+</html>
