@@ -75,6 +75,39 @@
             background-color: #0f172a;
             color: #e2e8f0;
         }
+
+        /* Chatbot */
+        #chatbot-btn {
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
+            width: 65px;
+            height: 65px;
+            background: var(--navy);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            box-shadow: 0 10px 30px rgba(15, 23, 42, 0.4);
+            z-index: 9999;
+            cursor: pointer;
+        }
+        #chat-window {
+            position: fixed;
+            bottom: 100px;
+            right: 25px;
+            width: 380px;
+            height: 520px;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.25);
+            display: none;
+            flex-direction: column;
+            overflow: hidden;
+            z-index: 9999;
+        }
     </style>
 </head>
 <body class="bg-[#fffff0] text-[#1f2937] body-font">
@@ -317,6 +350,42 @@
         </div>
     </footer>
 
+    <!-- REAL AI CHATBOT -->
+    <div id="chatbot">
+        <button onclick="toggleChat()" id="chatbot-btn">💬</button>
+
+        <div id="chat-window" class="flex flex-col border border-gray-200">
+            <div class="bg-[#0f172a] text-white p-4 flex items-center justify-between">
+                <div class="flex items-center gap-3">
+                    <div class="w-9 h-9 bg-white text-[#0f172a] rounded-full flex items-center justify-center text-2xl">🏡</div>
+                    <div>
+                        <p class="font-semibold">SH AI Assistant</p>
+                        <p class="text-xs opacity-75">Powered by GPT</p>
+                    </div>
+                </div>
+                <button onclick="toggleChat()" class="text-xl">✕</button>
+            </div>
+            
+            <div id="chat-messages" class="flex-1 p-4 overflow-y-auto bg-gray-50 space-y-4 text-sm">
+                <div class="bg-white p-4 rounded-2xl rounded-tl-none">
+                    Hello! How can I help you with your UK property investment today?
+                </div>
+            </div>
+            
+            <div class="p-4 border-t bg-white">
+                <div class="flex gap-2">
+                    <input id="chat-input" type="text" 
+                           class="flex-1 border border-gray-300 rounded-2xl px-5 py-3 focus:outline-none focus:border-[#0f172a]"
+                           placeholder="Ask anything...">
+                    <button onclick="sendToAI()" 
+                            class="bg-[#0f172a] text-white px-6 rounded-2xl hover:bg-black transition">
+                        Send
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- COOKIE CONSENT -->
     <div id="cookieConsent" class="flex flex-col sm:flex-row items-center justify-between gap-4">
         <p class="text-sm text-gray-300 flex-1">
@@ -329,11 +398,13 @@
     </div>
 
     <script>
+        // Navbar Scroll
         const navbar = document.getElementById('navbar');
         window.addEventListener('scroll', () => {
             navbar.classList.toggle('scrolled', window.scrollY > 80);
         });
 
+        // Strategy Form
         document.getElementById('strategyForm').addEventListener('submit', function(e) {
             e.preventDefault();
             const success = document.getElementById('strategySuccess');
@@ -342,6 +413,71 @@
             setTimeout(() => success.style.display = 'none', 6000);
         });
 
+        // Chatbot
+        function toggleChat() {
+            const win = document.getElementById('chat-window');
+            win.style.display = win.style.display === 'flex' ? 'none' : 'flex';
+        }
+
+        async function sendToAI() {
+            const input = document.getElementById('chat-input');
+            const messages = document.getElementById('chat-messages');
+            const userText = input.value.trim();
+            if (!userText) return;
+
+            const userDiv = document.createElement('div');
+            userDiv.className = "bg-[#0f172a] text-white p-4 rounded-2xl rounded-tr-none ml-auto max-w-[80%]";
+            userDiv.textContent = userText;
+            messages.appendChild(userDiv);
+            messages.scrollTop = messages.scrollHeight;
+
+            input.value = '';
+
+            const thinking = document.createElement('div');
+            thinking.className = "bg-white p-4 rounded-2xl rounded-tl-none max-w-[80%]";
+            thinking.textContent = "Thinking...";
+            messages.appendChild(thinking);
+            messages.scrollTop = messages.scrollHeight;
+
+            try {
+                const response = await fetch('https://api.openai.com/v1/chat/completions', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': 'Bearer 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'
+                    },
+                    body: JSON.stringify({
+                        model: "gpt-4o-mini",
+                        messages: [
+                            { role: "system", content: "You are a professional UK property investment assistant for SH Property Portfolios." },
+                            { role: "user", content: userText }
+                        ],
+                        max_tokens: 300
+                    })
+                });
+
+                const data = await response.json();
+                thinking.remove();
+
+                const botDiv = document.createElement('div');
+                botDiv.className = "bg-white p-4 rounded-2xl rounded-tl-none max-w-[80%]";
+                botDiv.textContent = data.choices[0].message.content;
+                messages.appendChild(botDiv);
+                messages.scrollTop = messages.scrollHeight;
+
+            } catch (err) {
+                thinking.textContent = "Sorry, I'm having trouble connecting. Please try again.";
+            }
+        }
+
+        // Send on Enter key
+        document.getElementById('chat-input').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                sendToAI();
+            }
+        });
+
+        // Cookie Consent
         function acceptCookies() {
             document.getElementById('cookieConsent').style.display = 'none';
             localStorage.setItem('cookiesAccepted', 'true');
