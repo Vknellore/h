@@ -23,8 +23,9 @@
         }
         .body-font { font-family: 'Inter', sans-serif; }
 
-        .logo-img { height: 56px; width: auto; }
-        .footer-logo { height: 70px; width: auto; }
+        .logo-img { height: 62px; width: auto; }
+        .footer-logo { height: 78px; width: auto; }
+        .partner-logo { height: 65px; width: auto; filter: grayscale(30%); }
 
         .navbar {
             transition: all 0.4s ease;
@@ -73,24 +74,6 @@
         .footer-dark {
             background-color: #0f172a;
             color: #e2e8f0;
-        }
-
-        /* Cookie Consent */
-        #cookieConsent {
-            position: fixed;
-            bottom: 20px;
-            left: 20px;
-            right: 20px;
-            max-width: 440px;
-            background: #0f172a;
-            color: white;
-            border-radius: 16px;
-            padding: 20px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-            z-index: 1000;
-            display: none;
-            align-items: center;
-            gap: 16px;
         }
     </style>
 </head>
@@ -242,6 +225,17 @@
         </div>
     </section>
 
+    <!-- OUR PARTNERS -->
+    <section class="py-20 bg-white">
+        <div class="max-w-6xl mx-auto px-6 text-center">
+            <h2 class="text-5xl font-bold mb-12 section-title">Our Partners</h2>
+            <div class="flex flex-wrap justify-center items-center gap-12 md:gap-16">
+                <img src="prs-logo.png" alt="Property Redress Scheme" class="partner-logo">
+                <img src="hmrc-logo.png" alt="HM Revenue & Customs" class="partner-logo">
+            </div>
+        </div>
+    </section>
+
     <!-- STRATEGY CALL -->
     <section id="strategy-call" class="py-28 bg-white">
         <div class="max-w-2xl mx-auto px-6">
@@ -303,10 +297,22 @@
             </div>
         </div>
 
-        <div class="border-t border-gray-800 mt-16 pt-8">
+        <div class="max-w-7xl mx-auto px-6 mt-12 flex justify-center gap-6">
+            <a href="https://facebook.com" target="_blank" class="w-11 h-11 bg-gray-800 hover:bg-gray-700 rounded-full flex items-center justify-center text-2xl">
+                <i class="fab fa-facebook-f"></i>
+            </a>
+            <a href="https://instagram.com" target="_blank" class="w-11 h-11 bg-gray-800 hover:bg-gray-700 rounded-full flex items-center justify-center text-2xl">
+                <i class="fab fa-instagram"></i>
+            </a>
+            <a href="https://linkedin.com" target="_blank" class="w-11 h-11 bg-gray-800 hover:bg-gray-700 rounded-full flex items-center justify-center text-2xl">
+                <i class="fab fa-linkedin-in"></i>
+            </a>
+        </div>
+
+        <div class="border-t border-gray-800 mt-12 pt-8">
             <div class="max-w-7xl mx-auto px-6 text-center text-gray-500 text-sm">
-                © 2026 SH Property Portfolios • All Rights Reserved<br>
-                Property investment involves risk. Past performance is not indicative of future results.
+                Copyright © 2026 shpropertyportfolios.co.uk - All Rights Reserved.<br>
+                SH Property Portfolios Ltd, Company No. 17011054
             </div>
         </div>
     </footer>
@@ -323,13 +329,11 @@
     </div>
 
     <script>
-        // Navbar Scroll
         const navbar = document.getElementById('navbar');
         window.addEventListener('scroll', () => {
             navbar.classList.toggle('scrolled', window.scrollY > 80);
         });
 
-        // Form Handler
         document.getElementById('strategyForm').addEventListener('submit', function(e) {
             e.preventDefault();
             const success = document.getElementById('strategySuccess');
@@ -338,7 +342,6 @@
             setTimeout(() => success.style.display = 'none', 6000);
         });
 
-        // Cookie Consent
         function acceptCookies() {
             document.getElementById('cookieConsent').style.display = 'none';
             localStorage.setItem('cookiesAccepted', 'true');
