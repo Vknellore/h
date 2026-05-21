@@ -7,7 +7,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-  
+ 
     <style>
         :root {
             --navy: #0f172a;
@@ -17,16 +17,26 @@
             background: linear-gradient(rgba(15, 23, 42, 0.65), rgba(15, 23, 42, 0.75)),
                         url('Gemini_Generated_Image_3sw5uz3sw5uz3sw5.png') center/cover no-repeat fixed;
         }
-        .section-title { 
-            font-family: 'Playfair Display', sans-serif; 
-            letter-spacing: -0.04em; 
+        .section-title {
+            font-family: 'Playfair Display', sans-serif;
+            letter-spacing: -0.04em;
         }
         .body-font { font-family: 'Inter', sans-serif; }
+        
+        /* Logo Styling - Blends with header */
+        .logo-img {
+            height: 62px; 
+            width: auto;
+            transition: all 0.4s ease;
+            filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.35));
+        }
+        .navbar.scrolled .logo-img {
+            filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
+        }
 
-        .logo-img { height: 62px; width: auto; }
         .footer-logo { height: 78px; width: auto; }
         .partner-logo { height: 65px; width: auto; filter: grayscale(30%); }
-
+        
         .navbar {
             transition: all 0.4s ease;
             background-color: transparent;
@@ -43,70 +53,21 @@
             color: var(--navy) !important;
         }
 
-        .card { transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); }
-        .card:hover { transform: translateY(-12px); }
-
-        .accent { background-color: var(--navy); color: white; }
-        .accent-hover:hover { background-color: #1e2937; }
-
-        .compact-input {
-            padding: 16px 20px 16px 50px;
-            font-size: 16px;
-            border-radius: 16px;
-        }
-        .input-icon {
-            position: absolute;
-            left: 18px;
-            top: 50%;
-            transform: translateY(-50%);
-            color: #64748b;
-        }
-        .success-message {
-            display: none;
-            background-color: #10b981;
-            color: white;
-            padding: 16px 24px;
-            border-radius: 16px;
-            margin-top: 20px;
-            text-align: center;
-            font-weight: 600;
-        }
-        .footer-dark {
-            background-color: #0f172a;
+        /* Cookie Consent - Bottom Left with Accept & Deny */
+        #cookieConsent {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            max-width: 380px;
+            background: #0f172a;
             color: #e2e8f0;
-        }
-
-        /* Chatbot */
-        #chatbot-btn {
-            position: fixed;
-            bottom: 25px;
-            right: 25px;
-            width: 65px;
-            height: 65px;
-            background: var(--navy);
-            color: white;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 28px;
-            box-shadow: 0 10px 30px rgba(15, 23, 42, 0.4);
-            z-index: 9999;
-            cursor: pointer;
-        }
-        #chat-window {
-            position: fixed;
-            bottom: 100px;
-            right: 25px;
-            width: 380px;
-            height: 520px;
-            background: white;
-            border-radius: 20px;
-            box-shadow: 0 15px 40px rgba(0,0,0,0.25);
+            border-radius: 16px;
+            padding: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            z-index: 10000;
             display: none;
             flex-direction: column;
-            overflow: hidden;
-            z-index: 9999;
+            gap: 16px;
         }
     </style>
 </head>
@@ -116,13 +77,12 @@
     <header id="navbar" class="navbar fixed w-full z-50 py-5">
         <div class="max-w-7xl mx-auto px-6 md:px-8 flex justify-between items-center">
             <img src="logo.png" alt="SH Property Portfolios" class="logo-img">
-            
+           
             <nav class="hidden md:flex gap-9 text-base font-medium">
                 <a href="#offers" class="nav-text">Offers</a>
                 <a href="#how" class="nav-text">How It Works</a>
                 <a href="#deals" class="nav-text">Deals</a>
             </nav>
-
             <a href="#strategy-call" class="accent px-7 py-3.5 rounded-2xl font-semibold text-sm hidden sm:block accent-hover">
                 <i class="fas fa-calendar-check mr-2"></i>Book Strategy Call
             </a>
@@ -275,7 +235,7 @@
             <div class="bg-[#f5f5dc] p-12 rounded-3xl text-center">
                 <h2 class="text-4xl font-bold mb-4 section-title">Ready to Get Started?</h2>
                 <p class="text-xl text-gray-600 mb-10">Book your free 30-minute strategy call</p>
-                
+               
                 <form id="strategyForm" class="space-y-6">
                     <div class="relative">
                         <i class="fas fa-user input-icon"></i>
@@ -305,7 +265,7 @@
                 <img src="logo.png" alt="SH Property Portfolios" class="footer-logo mb-6">
                 <p class="text-gray-400 text-lg">Your Partner in Property Success</p>
             </div>
-            
+           
             <div class="md:col-span-3">
                 <h4 class="text-white font-semibold mb-6">Contact Us</h4>
                 <div class="space-y-3 text-gray-300">
@@ -317,7 +277,6 @@
                     </a>
                 </div>
             </div>
-
             <div class="md:col-span-4">
                 <h4 class="text-white font-semibold mb-6">Registered Address</h4>
                 <p class="text-gray-400 text-sm leading-relaxed">
@@ -329,7 +288,6 @@
                 </p>
             </div>
         </div>
-
         <div class="max-w-7xl mx-auto px-6 mt-12 flex justify-center gap-6">
             <a href="https://facebook.com" target="_blank" class="w-11 h-11 bg-gray-800 hover:bg-gray-700 rounded-full flex items-center justify-center text-2xl">
                 <i class="fab fa-facebook-f"></i>
@@ -341,7 +299,6 @@
                 <i class="fab fa-linkedin-in"></i>
             </a>
         </div>
-
         <div class="border-t border-gray-800 mt-12 pt-8">
             <div class="max-w-7xl mx-auto px-6 text-center text-gray-500 text-sm">
                 Copyright © 2026 shpropertyportfolios.co.uk - All Rights Reserved.<br>
@@ -350,10 +307,26 @@
         </div>
     </footer>
 
-    <!-- REAL AI CHATBOT -->
+    <!-- COOKIE CONSENT -->
+    <div id="cookieConsent">
+        <p class="text-sm text-gray-300">
+            This website uses cookies to improve your experience. By continuing, you agree to our use of cookies.
+        </p>
+        <div class="cookie-buttons flex gap-3">
+            <button onclick="acceptCookies()" 
+                    class="flex-1 bg-[#d4af37] hover:bg-amber-400 text-[#0f172a] font-semibold py-3 rounded-2xl text-sm">
+                Accept
+            </button>
+            <button onclick="denyCookies()" 
+                    class="flex-1 bg-gray-700 hover:bg-gray-600 text-white font-semibold py-3 rounded-2xl text-sm">
+                Deny
+            </button>
+        </div>
+    </div>
+
+    <!-- CHATBOT -->
     <div id="chatbot">
         <button onclick="toggleChat()" id="chatbot-btn">💬</button>
-
         <div id="chat-window" class="flex flex-col border border-gray-200">
             <div class="bg-[#0f172a] text-white p-4 flex items-center justify-between">
                 <div class="flex items-center gap-3">
@@ -365,36 +338,25 @@
                 </div>
                 <button onclick="toggleChat()" class="text-xl">✕</button>
             </div>
-            
+           
             <div id="chat-messages" class="flex-1 p-4 overflow-y-auto bg-gray-50 space-y-4 text-sm">
                 <div class="bg-white p-4 rounded-2xl rounded-tl-none">
                     Hello! How can I help you with your UK property investment today?
                 </div>
             </div>
-            
+           
             <div class="p-4 border-t bg-white">
                 <div class="flex gap-2">
-                    <input id="chat-input" type="text" 
+                    <input id="chat-input" type="text"
                            class="flex-1 border border-gray-300 rounded-2xl px-5 py-3 focus:outline-none focus:border-[#0f172a]"
                            placeholder="Ask anything...">
-                    <button onclick="sendToAI()" 
+                    <button onclick="sendToAI()"
                             class="bg-[#0f172a] text-white px-6 rounded-2xl hover:bg-black transition">
                         Send
                     </button>
                 </div>
             </div>
         </div>
-    </div>
-
-    <!-- COOKIE CONSENT -->
-    <div id="cookieConsent" class="flex flex-col sm:flex-row items-center justify-between gap-4">
-        <p class="text-sm text-gray-300 flex-1">
-            This website uses cookies to improve your experience. By continuing, you agree to our use of cookies.
-        </p>
-        <button onclick="acceptCookies()" 
-                class="bg-[#d4af37] hover:bg-amber-400 text-[#0f172a] font-semibold px-8 py-3 rounded-2xl text-sm whitespace-nowrap">
-            Accept
-        </button>
     </div>
 
     <script>
@@ -413,6 +375,17 @@
             setTimeout(() => success.style.display = 'none', 6000);
         });
 
+        // Cookie Consent
+        function acceptCookies() {
+            document.getElementById('cookieConsent').style.display = 'none';
+            localStorage.setItem('cookiesAccepted', 'true');
+        }
+
+        function denyCookies() {
+            document.getElementById('cookieConsent').style.display = 'none';
+            localStorage.setItem('cookiesAccepted', 'false');
+        }
+
         // Chatbot
         function toggleChat() {
             const win = document.getElementById('chat-window');
@@ -430,7 +403,6 @@
             userDiv.textContent = userText;
             messages.appendChild(userDiv);
             messages.scrollTop = messages.scrollHeight;
-
             input.value = '';
 
             const thinking = document.createElement('div');
@@ -455,34 +427,23 @@
                         max_tokens: 300
                     })
                 });
-
                 const data = await response.json();
                 thinking.remove();
-
                 const botDiv = document.createElement('div');
                 botDiv.className = "bg-white p-4 rounded-2xl rounded-tl-none max-w-[80%]";
                 botDiv.textContent = data.choices[0].message.content;
                 messages.appendChild(botDiv);
                 messages.scrollTop = messages.scrollHeight;
-
             } catch (err) {
                 thinking.textContent = "Sorry, I'm having trouble connecting. Please try again.";
             }
         }
 
-        // Send on Enter key
         document.getElementById('chat-input').addEventListener('keypress', function(e) {
-            if (e.key === 'Enter') {
-                sendToAI();
-            }
+            if (e.key === 'Enter') sendToAI();
         });
 
-        // Cookie Consent
-        function acceptCookies() {
-            document.getElementById('cookieConsent').style.display = 'none';
-            localStorage.setItem('cookiesAccepted', 'true');
-        }
-
+        // Show Cookie Consent
         window.onload = function() {
             if (!localStorage.getItem('cookiesAccepted')) {
                 document.getElementById('cookieConsent').style.display = 'flex';
