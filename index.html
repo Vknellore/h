@@ -7,7 +7,6 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-  
     <style>
         :root {
             --navy: #0f172a;
@@ -17,16 +16,24 @@
             background: linear-gradient(rgba(15, 23, 42, 0.65), rgba(15, 23, 42, 0.75)),
                         url('Gemini_Generated_Image_3sw5uz3sw5uz3sw5.png') center/cover no-repeat fixed;
         }
-        .section-title { 
-            font-family: 'Playfair Display', sans-serif; 
-            letter-spacing: -0.04em; 
+        .section-title {
+            font-family: 'Playfair Display', sans-serif;
+            letter-spacing: -0.04em;
         }
         .body-font { font-family: 'Inter', sans-serif; }
-
-        .logo-img { height: 62px; width: auto; }
+       
+        .logo-img {
+            height: 62px;
+            width: auto;
+            transition: all 0.4s ease;
+            filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.35));
+        }
+        .navbar.scrolled .logo-img {
+            filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
+        }
         .footer-logo { height: 78px; width: auto; }
         .partner-logo { height: 65px; width: auto; filter: grayscale(30%); }
-
+       
         .navbar {
             transition: all 0.4s ease;
             background-color: transparent;
@@ -42,13 +49,10 @@
         .navbar.scrolled .nav-text {
             color: var(--navy) !important;
         }
-
         .card { transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); }
         .card:hover { transform: translateY(-12px); }
-
         .accent { background-color: var(--navy); color: white; }
         .accent-hover:hover { background-color: #1e2937; }
-
         .compact-input {
             padding: 16px 20px 16px 50px;
             font-size: 16px;
@@ -75,7 +79,21 @@
             background-color: #0f172a;
             color: #e2e8f0;
         }
-
+        #cookieConsent {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            max-width: 380px;
+            background: #0f172a;
+            color: #e2e8f0;
+            border-radius: 16px;
+            padding: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            z-index: 10000;
+            display: none;
+            flex-direction: column;
+            gap: 16px;
+        }
         /* Chatbot */
         #chatbot-btn {
             position: fixed;
@@ -108,6 +126,19 @@
             overflow: hidden;
             z-index: 9999;
         }
+        .faq-btn {
+            background: #f1f5f9;
+            border: 1px solid #e2e8f0;
+            padding: 12px 14px;
+            border-radius: 12px;
+            text-align: left;
+            font-size: 0.9rem;
+            transition: all 0.2s;
+        }
+        .faq-btn:hover {
+            background: #e0f2fe;
+            border-color: #0f172a;
+        }
     </style>
 </head>
 <body class="bg-[#fffff0] text-[#1f2937] body-font">
@@ -115,14 +146,12 @@
     <!-- NAVBAR -->
     <header id="navbar" class="navbar fixed w-full z-50 py-5">
         <div class="max-w-7xl mx-auto px-6 md:px-8 flex justify-between items-center">
-            <img src="CNzjw.jpg" alt="SH Property Portfolios" class="logo-img">
-            
+            <img src="GVk9D.jpg" alt="SH Property Portfolios" class="logo-img">
             <nav class="hidden md:flex gap-9 text-base font-medium">
                 <a href="#offers" class="nav-text">Offers</a>
                 <a href="#how" class="nav-text">How It Works</a>
                 <a href="#deals" class="nav-text">Deals</a>
             </nav>
-
             <a href="#strategy-call" class="accent px-7 py-3.5 rounded-2xl font-semibold text-sm hidden sm:block accent-hover">
                 <i class="fas fa-calendar-check mr-2"></i>Book Strategy Call
             </a>
@@ -263,7 +292,7 @@
         <div class="max-w-6xl mx-auto px-6 text-center">
             <h2 class="text-5xl font-bold mb-12 section-title">Our Partners</h2>
             <div class="flex flex-wrap justify-center items-center gap-12 md:gap-16">
-                <img src="prs-logo.png" alt="Property Redress Scheme" class="partner-logo">
+                <img src="images.jpg" alt="Property Redress Scheme" class="partner-logo">
                 <img src="hmrc-logo.png" alt="HM Revenue & Customs" class="partner-logo">
             </div>
         </div>
@@ -275,7 +304,6 @@
             <div class="bg-[#f5f5dc] p-12 rounded-3xl text-center">
                 <h2 class="text-4xl font-bold mb-4 section-title">Ready to Get Started?</h2>
                 <p class="text-xl text-gray-600 mb-10">Book your free 30-minute strategy call</p>
-                
                 <form id="strategyForm" class="space-y-6">
                     <div class="relative">
                         <i class="fas fa-user input-icon"></i>
@@ -302,10 +330,9 @@
     <footer class="footer-dark pt-20 pb-12">
         <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-12 gap-10">
             <div class="md:col-span-5">
-                <img src="logo.png" alt="SH Property Portfolios" class="footer-logo mb-6">
+                <img src="XY0d0.jpg" alt="SH Property Portfolios" class="footer-logo mb-6">
                 <p class="text-gray-400 text-lg">Your Partner in Property Success</p>
             </div>
-            
             <div class="md:col-span-3">
                 <h4 class="text-white font-semibold mb-6">Contact Us</h4>
                 <div class="space-y-3 text-gray-300">
@@ -317,7 +344,6 @@
                     </a>
                 </div>
             </div>
-
             <div class="md:col-span-4">
                 <h4 class="text-white font-semibold mb-6">Registered Address</h4>
                 <p class="text-gray-400 text-sm leading-relaxed">
@@ -329,7 +355,6 @@
                 </p>
             </div>
         </div>
-
         <div class="max-w-7xl mx-auto px-6 mt-12 flex justify-center gap-6">
             <a href="https://facebook.com" target="_blank" class="w-11 h-11 bg-gray-800 hover:bg-gray-700 rounded-full flex items-center justify-center text-2xl">
                 <i class="fab fa-facebook-f"></i>
@@ -341,7 +366,6 @@
                 <i class="fab fa-linkedin-in"></i>
             </a>
         </div>
-
         <div class="border-t border-gray-800 mt-12 pt-8">
             <div class="max-w-7xl mx-auto px-6 text-center text-gray-500 text-sm">
                 Copyright © 2026 shpropertyportfolios.co.uk - All Rights Reserved.<br>
@@ -353,7 +377,6 @@
     <!-- REAL AI CHATBOT -->
     <div id="chatbot">
         <button onclick="toggleChat()" id="chatbot-btn">💬</button>
-
         <div id="chat-window" class="flex flex-col border border-gray-200">
             <div class="bg-[#0f172a] text-white p-4 flex items-center justify-between">
                 <div class="flex items-center gap-3">
@@ -365,19 +388,17 @@
                 </div>
                 <button onclick="toggleChat()" class="text-xl">✕</button>
             </div>
-            
+          
             <div id="chat-messages" class="flex-1 p-4 overflow-y-auto bg-gray-50 space-y-4 text-sm">
-                <div class="bg-white p-4 rounded-2xl rounded-tl-none">
-                    Hello! How can I help you with your UK property investment today?
-                </div>
+                <!-- Dynamic messages -->
             </div>
-            
+          
             <div class="p-4 border-t bg-white">
                 <div class="flex gap-2">
-                    <input id="chat-input" type="text" 
+                    <input id="chat-input" type="text"
                            class="flex-1 border border-gray-300 rounded-2xl px-5 py-3 focus:outline-none focus:border-[#0f172a]"
-                           placeholder="Ask anything...">
-                    <button onclick="sendToAI()" 
+                           placeholder="Type your answer...">
+                    <button onclick="handleUserInput()"
                             class="bg-[#0f172a] text-white px-6 rounded-2xl hover:bg-black transition">
                         Send
                     </button>
@@ -387,14 +408,14 @@
     </div>
 
     <!-- COOKIE CONSENT -->
-    <div id="cookieConsent" class="flex flex-col sm:flex-row items-center justify-between gap-4">
-        <p class="text-sm text-gray-300 flex-1">
+    <div id="cookieConsent">
+        <p class="text-sm text-gray-300">
             This website uses cookies to improve your experience. By continuing, you agree to our use of cookies.
         </p>
-        <button onclick="acceptCookies()" 
-                class="bg-[#d4af37] hover:bg-amber-400 text-[#0f172a] font-semibold px-8 py-3 rounded-2xl text-sm whitespace-nowrap">
-            Accept
-        </button>
+        <div class="flex gap-3">
+            <button onclick="acceptCookies()" class="flex-1 bg-[#d4af37] hover:bg-amber-400 text-[#0f172a] font-semibold py-3 rounded-2xl text-sm">Accept</button>
+            <button onclick="denyCookies()" class="flex-1 bg-gray-700 hover:bg-gray-600 text-white font-semibold py-3 rounded-2xl text-sm">Deny</button>
+        </div>
     </div>
 
     <script>
@@ -413,68 +434,121 @@
             setTimeout(() => success.style.display = 'none', 6000);
         });
 
-        // Chatbot
+        // ==================== CHATBOT LOGIC ====================
+        let qualificationStep = 0;
+        let leadData = {};
+
+        const qualificationQuestions = [
+            "What type of investment are you most interested in? (Portfolio Building, Vetted Deals, or Co-Investment)",
+            "What amount are you willing to invest?",
+            "What is your full name?",
+            "Please share your best contact details (email and phone number)"
+        ];
+
+        const faqs = [
+            { q: "How much do I need to invest?", a: "Typically from £40,000–£50,000 depending on the deal." },
+            { q: "Do I need experience?", a: "No — everything is structured for you." },
+            { q: "What are the risks?", a: "All investments carry risk. We minimise this through strict due diligence and conservative projections." },
+            { q: "Can I invest remotely?", a: "Yes — many of our investors are overseas." }
+        ];
+
         function toggleChat() {
             const win = document.getElementById('chat-window');
-            win.style.display = win.style.display === 'flex' ? 'none' : 'flex';
+            if (win.style.display === 'flex') {
+                win.style.display = 'none';
+            } else {
+                win.style.display = 'flex';
+                if (qualificationStep === 0) startQualification();
+            }
         }
 
-        async function sendToAI() {
-            const input = document.getElementById('chat-input');
+        function addMessage(text, isBot = true) {
             const messages = document.getElementById('chat-messages');
-            const userText = input.value.trim();
-            if (!userText) return;
-
-            const userDiv = document.createElement('div');
-            userDiv.className = "bg-[#0f172a] text-white p-4 rounded-2xl rounded-tr-none ml-auto max-w-[80%]";
-            userDiv.textContent = userText;
-            messages.appendChild(userDiv);
+            const div = document.createElement('div');
+            div.className = isBot 
+                ? "bg-white p-4 rounded-2xl rounded-tl-none max-w-[80%]" 
+                : "bg-[#0f172a] text-white p-4 rounded-2xl rounded-tr-none ml-auto max-w-[80%]";
+            div.textContent = text;
+            messages.appendChild(div);
             messages.scrollTop = messages.scrollHeight;
+        }
 
+        function startQualification() {
+            addMessage("Hello! To help you better, I’ll ask a few quick questions.");
+            setTimeout(() => {
+                addMessage(qualificationQuestions[0]);
+                qualificationStep = 1;
+            }, 800);
+        }
+
+        function handleUserInput() {
+            const input = document.getElementById('chat-input');
+            const text = input.value.trim();
+            if (!text) return;
+
+            addMessage(text, false);
             input.value = '';
 
-            const thinking = document.createElement('div');
-            thinking.className = "bg-white p-4 rounded-2xl rounded-tl-none max-w-[80%]";
-            thinking.textContent = "Thinking...";
-            messages.appendChild(thinking);
-            messages.scrollTop = messages.scrollHeight;
+            if (qualificationStep >= 1 && qualificationStep <= 4) {
+                if (qualificationStep === 1) leadData.type = text;
+                if (qualificationStep === 2) leadData.amount = text;
+                if (qualificationStep === 3) leadData.name = text;
+                if (qualificationStep === 4) leadData.contact = text;
 
-            try {
-                const response = await fetch('https://api.openai.com/v1/chat/completions', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                        'Authorization': 'Bearer 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'
-                    },
-                    body: JSON.stringify({
-                        model: "gpt-4o-mini",
-                        messages: [
-                            { role: "system", content: "You are a professional UK property investment assistant for SH Property Portfolios." },
-                            { role: "user", content: userText }
-                        ],
-                        max_tokens: 300
-                    })
-                });
+                qualificationStep++;
 
-                const data = await response.json();
-                thinking.remove();
-
-                const botDiv = document.createElement('div');
-                botDiv.className = "bg-white p-4 rounded-2xl rounded-tl-none max-w-[80%]";
-                botDiv.textContent = data.choices[0].message.content;
-                messages.appendChild(botDiv);
-                messages.scrollTop = messages.scrollHeight;
-
-            } catch (err) {
-                thinking.textContent = "Sorry, I'm having trouble connecting. Please try again.";
+                if (qualificationStep <= 4) {
+                    setTimeout(() => addMessage(qualificationQuestions[qualificationStep - 1]), 600);
+                } else {
+                    setTimeout(() => {
+                        addMessage("✅ Thank you! One of our team will contact you soon.");
+                        showFAQSection();
+                        console.log("=== NEW LEAD RECEIVED ===", leadData);
+                        alert("New Lead Received!\n\nName: " + (leadData.name || "") + 
+                              "\nAmount: " + (leadData.amount || "") +
+                              "\nType: " + (leadData.type || "") +
+                              "\nContact: " + (leadData.contact || ""));
+                    }, 800);
+                }
             }
         }
 
-        // Send on Enter key
+        function showFAQSection() {
+            const messages = document.getElementById('chat-messages');
+            const header = document.createElement('div');
+            header.className = "text-xs text-gray-500 px-2 font-medium mt-6 mb-2";
+            header.textContent = "Frequently Asked Questions";
+            messages.appendChild(header);
+
+            faqs.forEach((faq, i) => {
+                const btn = document.createElement('button');
+                btn.className = "faq-btn w-full text-left mt-2 py-3 px-4";
+                btn.textContent = faq.q;
+                btn.onclick = () => showFAQAnswer(i);
+                messages.appendChild(btn);
+            });
+            messages.scrollTop = messages.scrollHeight;
+        }
+
+        function showFAQAnswer(index) {
+            const messages = document.getElementById('chat-messages');
+            const faq = faqs[index];
+
+            const ans = document.createElement('div');
+            ans.className = "bg-white p-4 rounded-2xl rounded-tl-none max-w-[80%]";
+            ans.innerHTML = `<strong>Answer:</strong><br>${faq.a}`;
+            messages.appendChild(ans);
+
+            const q = document.createElement('div');
+            q.className = "bg-[#0f172a] text-white p-4 rounded-2xl rounded-tr-none ml-auto max-w-[80%] mt-2";
+            q.textContent = faq.q;
+            messages.appendChild(q);
+
+            messages.scrollTop = messages.scrollHeight;
+        }
+
         document.getElementById('chat-input').addEventListener('keypress', function(e) {
-            if (e.key === 'Enter') {
-                sendToAI();
-            }
+            if (e.key === 'Enter') handleUserInput();
         });
 
         // Cookie Consent
@@ -482,7 +556,10 @@
             document.getElementById('cookieConsent').style.display = 'none';
             localStorage.setItem('cookiesAccepted', 'true');
         }
-
+        function denyCookies() {
+            document.getElementById('cookieConsent').style.display = 'none';
+            localStorage.setItem('cookiesAccepted', 'false');
+        }
         window.onload = function() {
             if (!localStorage.getItem('cookiesAccepted')) {
                 document.getElementById('cookieConsent').style.display = 'flex';
