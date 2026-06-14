@@ -9,11 +9,11 @@
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
     <style>
         :root {
-            --navy: #0f172a;
-            --gold: #d4af37;
+            --navy: #000035;
+            --gold: #A57C00;
         }
         .hero-bg {
-            background: linear-gradient(rgba(15, 23, 42, 0.65), rgba(15, 23, 42, 0.75)),
+            background: linear-gradient(rgba(0, 0, 53, 0.65), rgba(0, 0, 53, 0.75)),
                         url('Gemini_Generated_Image_3sw5uz3sw5uz3sw5.png') center/cover no-repeat fixed;
         }
         .section-title {
@@ -21,7 +21,7 @@
             letter-spacing: -0.04em;
         }
         .body-font { font-family: 'Inter', sans-serif; }
-       
+      
         .logo-img {
             height: 62px;
             width: auto;
@@ -33,7 +33,7 @@
         }
         .footer-logo { height: 78px; width: auto; }
         .partner-logo { height: 65px; width: auto; filter: grayscale(30%); }
-       
+      
         .navbar {
             transition: all 0.4s ease;
             background-color: transparent;
@@ -51,8 +51,13 @@
         }
         .card { transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); }
         .card:hover { transform: translateY(-12px); }
-        .accent { background-color: var(--navy); color: white; }
-        .accent-hover:hover { background-color: #1e2937; }
+        .accent { 
+            background-color: var(--gold); 
+            color: var(--navy); 
+        }
+        .accent-hover:hover { 
+            background-color: #c99a1f; 
+        }
         .compact-input {
             padding: 16px 20px 16px 50px;
             font-size: 16px;
@@ -76,7 +81,7 @@
             font-weight: 600;
         }
         .footer-dark {
-            background-color: #0f172a;
+            background-color: var(--navy);
             color: #e2e8f0;
         }
         #cookieConsent {
@@ -84,7 +89,7 @@
             bottom: 20px;
             left: 20px;
             max-width: 380px;
-            background: #0f172a;
+            background: var(--navy);
             color: #e2e8f0;
             border-radius: 16px;
             padding: 20px;
@@ -108,7 +113,7 @@
             align-items: center;
             justify-content: center;
             font-size: 28px;
-            box-shadow: 0 10px 30px rgba(15, 23, 42, 0.4);
+            box-shadow: 0 10px 30px rgba(0, 0, 53, 0.4);
             z-index: 9999;
             cursor: pointer;
         }
@@ -137,12 +142,11 @@
         }
         .faq-btn:hover {
             background: #e0f2fe;
-            border-color: #0f172a;
+            border-color: var(--navy);
         }
     </style>
 </head>
 <body class="bg-[#fffff0] text-[#1f2937] body-font">
-
     <!-- NAVBAR -->
     <header id="navbar" class="navbar fixed w-full z-50 py-5">
         <div class="max-w-7xl mx-auto px-6 md:px-8 flex justify-between items-center">
@@ -157,7 +161,6 @@
             </a>
         </div>
     </header>
-
     <!-- HERO -->
     <section class="hero-bg h-screen flex items-center pt-16 text-white">
         <div class="max-w-5xl mx-auto text-center px-6">
@@ -171,37 +174,35 @@
                 <a href="#investment-form" class="accent px-10 py-5 rounded-3xl text-lg font-semibold accent-hover">
                     <i class="fas fa-chart-line mr-3"></i>I Want to Invest
                 </a>
-                <a href="#sell-form" class="border-2 border-white text-white px-10 py-5 rounded-3xl text-lg font-semibold hover:bg-white hover:text-[#0f172a]">
+                <a href="#sell-form" class="border-2 border-white text-white px-10 py-5 rounded-3xl text-lg font-semibold hover:bg-white hover:text-[#000035]">
                     <i class="fas fa-home mr-3"></i>I Want to Sell
                 </a>
             </div>
         </div>
     </section>
-
     <!-- CORE OFFERS -->
     <section id="offers" class="py-28 bg-white">
         <div class="max-w-7xl mx-auto px-6">
             <h2 class="text-5xl font-bold text-center mb-16 section-title">Our Core Offers</h2>
             <div class="grid md:grid-cols-3 gap-8">
                 <div class="bg-[#f5f5dc] p-10 rounded-3xl card">
-                    <div class="w-14 h-14 bg-[#0f172a] text-white rounded-2xl flex items-center justify-center text-3xl mb-6">🏠</div>
+                    <div class="w-14 h-14 bg-[#000035] text-white rounded-2xl flex items-center justify-center text-3xl mb-6">🏠</div>
                     <h3 class="text-3xl font-semibold mb-3">Portfolio Building</h3>
                     <p class="text-gray-600">Done-for-you remote portfolio building from sourcing to full management.</p>
                 </div>
                 <div class="bg-[#f5f5dc] p-10 rounded-3xl card">
-                    <div class="w-14 h-14 bg-[#0f172a] text-white rounded-2xl flex items-center justify-center text-3xl mb-6">💰</div>
+                    <div class="w-14 h-14 bg-[#000035] text-white rounded-2xl flex items-center justify-center text-3xl mb-6">💰</div>
                     <h3 class="text-3xl font-semibold mb-3">Vetted Deals</h3>
                     <p class="text-gray-600">Pre-packaged, income-generating opportunities with full transparency.</p>
                 </div>
                 <div class="bg-[#f5f5dc] p-10 rounded-3xl card">
-                    <div class="w-14 h-14 bg-[#0f172a] text-white rounded-2xl flex items-center justify-center text-3xl mb-6">🤝</div>
+                    <div class="w-14 h-14 bg-[#000035] text-white rounded-2xl flex items-center justify-center text-3xl mb-6">🤝</div>
                     <h3 class="text-3xl font-semibold mb-3">Co-Investment</h3>
                     <p class="text-gray-600">Access high-return development projects with experienced partners.</p>
                 </div>
             </div>
         </div>
     </section>
-
     <!-- WHO IT IS FOR -->
     <section class="py-28 bg-[#f5f5dc]">
         <div class="max-w-6xl mx-auto px-6 text-center">
@@ -225,41 +226,39 @@
             </div>
         </div>
     </section>
-
     <!-- HOW IT WORKS -->
     <section id="how" class="py-28 bg-white">
         <div class="max-w-6xl mx-auto px-6 text-center">
             <h2 class="text-5xl font-bold mb-16 section-title">How It Works</h2>
             <div class="grid md:grid-cols-5 gap-8">
                 <div class="card bg-white p-8 rounded-3xl border">
-                    <i class="fas fa-phone text-4xl text-gray-400 mb-4"></i>
+                    <i class="fas fa-phone text-4xl text-[#000035] mb-4"></i>
                     <div class="text-4xl font-bold text-gray-300 mb-2">01</div>
                     <p class="font-semibold text-lg">Book a Call</p>
                 </div>
                 <div class="card bg-white p-8 rounded-3xl border">
-                    <i class="fas fa-bullseye text-4xl text-gray-400 mb-4"></i>
+                    <i class="fas fa-bullseye text-4xl text-[#000035] mb-4"></i>
                     <div class="text-4xl font-bold text-gray-300 mb-2">02</div>
                     <p class="font-semibold text-lg">Define Your Goals</p>
                 </div>
                 <div class="card bg-white p-8 rounded-3xl border">
-                    <i class="fas fa-search text-4xl text-gray-400 mb-4"></i>
+                    <i class="fas fa-search text-4xl text-[#000035] mb-4"></i>
                     <div class="text-4xl font-bold text-gray-300 mb-2">03</div>
                     <p class="font-semibold text-lg">We Source & Vet</p>
                 </div>
                 <div class="card bg-white p-8 rounded-3xl border">
-                    <i class="fas fa-pound-sign text-4xl text-gray-400 mb-4"></i>
+                    <i class="fas fa-pound-sign text-4xl text-[#000035] mb-4"></i>
                     <div class="text-4xl font-bold text-gray-300 mb-2">04</div>
                     <p class="font-semibold text-lg">You Invest</p>
                 </div>
                 <div class="card bg-white p-8 rounded-3xl border">
-                    <i class="fas fa-cogs text-4xl text-gray-400 mb-4"></i>
+                    <i class="fas fa-cogs text-4xl text-[#000035] mb-4"></i>
                     <div class="text-4xl font-bold text-gray-300 mb-2">05</div>
                     <p class="font-semibold text-lg">We Manage</p>
                 </div>
             </div>
         </div>
     </section>
-
     <!-- EXAMPLE DEAL -->
     <section id="deals" class="py-28 bg-white">
         <div class="max-w-6xl mx-auto px-6">
@@ -286,7 +285,6 @@
             </div>
         </div>
     </section>
-
     <!-- OUR PARTNERS -->
     <section class="py-20 bg-white">
         <div class="max-w-6xl mx-auto px-6 text-center">
@@ -297,7 +295,6 @@
             </div>
         </div>
     </section>
-
     <!-- STRATEGY CALL -->
     <section id="strategy-call" class="py-28 bg-white">
         <div class="max-w-2xl mx-auto px-6">
@@ -325,7 +322,6 @@
             </div>
         </div>
     </section>
-
     <!-- FOOTER -->
     <footer class="footer-dark pt-20 pb-12">
         <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-12 gap-10">
@@ -373,14 +369,13 @@
             </div>
         </div>
     </footer>
-
     <!-- REAL AI CHATBOT -->
     <div id="chatbot">
         <button onclick="toggleChat()" id="chatbot-btn">💬</button>
         <div id="chat-window" class="flex flex-col border border-gray-200">
-            <div class="bg-[#0f172a] text-white p-4 flex items-center justify-between">
+            <div class="bg-[#000035] text-white p-4 flex items-center justify-between">
                 <div class="flex items-center gap-3">
-                    <div class="w-9 h-9 bg-white text-[#0f172a] rounded-full flex items-center justify-center text-2xl">🏡</div>
+                    <div class="w-9 h-9 bg-white text-[#000035] rounded-full flex items-center justify-center text-2xl">🏡</div>
                     <div>
                         <p class="font-semibold">SH AI Assistant</p>
                         <p class="text-xs opacity-75">Powered by GPT</p>
@@ -388,43 +383,40 @@
                 </div>
                 <button onclick="toggleChat()" class="text-xl">✕</button>
             </div>
-          
+         
             <div id="chat-messages" class="flex-1 p-4 overflow-y-auto bg-gray-50 space-y-4 text-sm">
                 <!-- Dynamic messages -->
             </div>
-          
+         
             <div class="p-4 border-t bg-white">
                 <div class="flex gap-2">
                     <input id="chat-input" type="text"
-                           class="flex-1 border border-gray-300 rounded-2xl px-5 py-3 focus:outline-none focus:border-[#0f172a]"
+                           class="flex-1 border border-gray-300 rounded-2xl px-5 py-3 focus:outline-none focus:border-[#000035]"
                            placeholder="Type your answer...">
                     <button onclick="handleUserInput()"
-                            class="bg-[#0f172a] text-white px-6 rounded-2xl hover:bg-black transition">
+                            class="bg-[#000035] text-white px-6 rounded-2xl hover:bg-[#000028] transition">
                         Send
                     </button>
                 </div>
             </div>
         </div>
     </div>
-
     <!-- COOKIE CONSENT -->
     <div id="cookieConsent">
         <p class="text-sm text-gray-300">
             This website uses cookies to improve your experience. By continuing, you agree to our use of cookies.
         </p>
         <div class="flex gap-3">
-            <button onclick="acceptCookies()" class="flex-1 bg-[#d4af37] hover:bg-amber-400 text-[#0f172a] font-semibold py-3 rounded-2xl text-sm">Accept</button>
+            <button onclick="acceptCookies()" class="flex-1 bg-[#A57C00] hover:bg-[#c99a1f] text-[#000035] font-semibold py-3 rounded-2xl text-sm">Accept</button>
             <button onclick="denyCookies()" class="flex-1 bg-gray-700 hover:bg-gray-600 text-white font-semibold py-3 rounded-2xl text-sm">Deny</button>
         </div>
     </div>
-
     <script>
         // Navbar Scroll
         const navbar = document.getElementById('navbar');
         window.addEventListener('scroll', () => {
             navbar.classList.toggle('scrolled', window.scrollY > 80);
         });
-
         // Strategy Form
         document.getElementById('strategyForm').addEventListener('submit', function(e) {
             e.preventDefault();
@@ -433,25 +425,21 @@
             this.reset();
             setTimeout(() => success.style.display = 'none', 6000);
         });
-
         // ==================== CHATBOT LOGIC ====================
         let qualificationStep = 0;
         let leadData = {};
-
         const qualificationQuestions = [
             "What type of investment are you most interested in? (Portfolio Building, Vetted Deals, or Co-Investment)",
             "What amount are you willing to invest?",
             "What is your full name?",
             "Please share your best contact details (email and phone number)"
         ];
-
         const faqs = [
             { q: "How much do I need to invest?", a: "Typically from £40,000–£50,000 depending on the deal." },
             { q: "Do I need experience?", a: "No — everything is structured for you." },
             { q: "What are the risks?", a: "All investments carry risk. We minimise this through strict due diligence and conservative projections." },
             { q: "Can I invest remotely?", a: "Yes — many of our investors are overseas." }
         ];
-
         function toggleChat() {
             const win = document.getElementById('chat-window');
             if (win.style.display === 'flex') {
@@ -461,18 +449,16 @@
                 if (qualificationStep === 0) startQualification();
             }
         }
-
         function addMessage(text, isBot = true) {
             const messages = document.getElementById('chat-messages');
             const div = document.createElement('div');
-            div.className = isBot 
-                ? "bg-white p-4 rounded-2xl rounded-tl-none max-w-[80%]" 
-                : "bg-[#0f172a] text-white p-4 rounded-2xl rounded-tr-none ml-auto max-w-[80%]";
+            div.className = isBot
+                ? "bg-white p-4 rounded-2xl rounded-tl-none max-w-[80%]"
+                : "bg-[#000035] text-white p-4 rounded-2xl rounded-tr-none ml-auto max-w-[80%]";
             div.textContent = text;
             messages.appendChild(div);
             messages.scrollTop = messages.scrollHeight;
         }
-
         function startQualification() {
             addMessage("Hello! To help you better, I’ll ask a few quick questions.");
             setTimeout(() => {
@@ -480,23 +466,18 @@
                 qualificationStep = 1;
             }, 800);
         }
-
         function handleUserInput() {
             const input = document.getElementById('chat-input');
             const text = input.value.trim();
             if (!text) return;
-
             addMessage(text, false);
             input.value = '';
-
             if (qualificationStep >= 1 && qualificationStep <= 4) {
                 if (qualificationStep === 1) leadData.type = text;
                 if (qualificationStep === 2) leadData.amount = text;
                 if (qualificationStep === 3) leadData.name = text;
                 if (qualificationStep === 4) leadData.contact = text;
-
                 qualificationStep++;
-
                 if (qualificationStep <= 4) {
                     setTimeout(() => addMessage(qualificationQuestions[qualificationStep - 1]), 600);
                 } else {
@@ -504,7 +485,7 @@
                         addMessage("✅ Thank you! One of our team will contact you soon.");
                         showFAQSection();
                         console.log("=== NEW LEAD RECEIVED ===", leadData);
-                        alert("New Lead Received!\n\nName: " + (leadData.name || "") + 
+                        alert("New Lead Received!\n\nName: " + (leadData.name || "") +
                               "\nAmount: " + (leadData.amount || "") +
                               "\nType: " + (leadData.type || "") +
                               "\nContact: " + (leadData.contact || ""));
@@ -512,14 +493,12 @@
                 }
             }
         }
-
         function showFAQSection() {
             const messages = document.getElementById('chat-messages');
             const header = document.createElement('div');
             header.className = "text-xs text-gray-500 px-2 font-medium mt-6 mb-2";
             header.textContent = "Frequently Asked Questions";
             messages.appendChild(header);
-
             faqs.forEach((faq, i) => {
                 const btn = document.createElement('button');
                 btn.className = "faq-btn w-full text-left mt-2 py-3 px-4";
@@ -529,28 +508,22 @@
             });
             messages.scrollTop = messages.scrollHeight;
         }
-
         function showFAQAnswer(index) {
             const messages = document.getElementById('chat-messages');
             const faq = faqs[index];
-
             const ans = document.createElement('div');
             ans.className = "bg-white p-4 rounded-2xl rounded-tl-none max-w-[80%]";
             ans.innerHTML = `<strong>Answer:</strong><br>${faq.a}`;
             messages.appendChild(ans);
-
             const q = document.createElement('div');
-            q.className = "bg-[#0f172a] text-white p-4 rounded-2xl rounded-tr-none ml-auto max-w-[80%] mt-2";
+            q.className = "bg-[#000035] text-white p-4 rounded-2xl rounded-tr-none ml-auto max-w-[80%] mt-2";
             q.textContent = faq.q;
             messages.appendChild(q);
-
             messages.scrollTop = messages.scrollHeight;
         }
-
         document.getElementById('chat-input').addEventListener('keypress', function(e) {
             if (e.key === 'Enter') handleUserInput();
         });
-
         // Cookie Consent
         function acceptCookies() {
             document.getElementById('cookieConsent').style.display = 'none';
